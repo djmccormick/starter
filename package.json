@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "graphile-migrate init ; concurrently \"next dev\" \"graphile-migrate watch\"",
+    "dev": "concurrently \"next dev\" \"graphile-migrate watch\"",
     "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
     "lint": "eslint --cache --fix .",
     "start": "next start"
