@@ -1,14 +1,18 @@
 module.exports = {
 	root: true,
-	parser: 'babel-eslint',
 	parserOptions: {
-		ecmaVersion: 9,
 		sourceType: 'module'
+	},
+	env: {
+		browser: true,
+		node: true,
+		es2020: true
 	},
 	extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
 	rules: {
 		'linebreak-style': ['error', 'unix'],
 		'no-cond-assign': ['error', 'always'],
+		'no-unused-vars': ['error', { args: 'none' }],
 		'prettier/prettier': 'error',
 		'react/jsx-uses-react': 'off',
 		'react/no-unescaped-entities': 'off',

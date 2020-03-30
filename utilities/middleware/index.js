@@ -1,8 +1,6 @@
 import postgraphile from './postgraphile';
 
-export {
-	postgraphile
-};
+export { postgraphile };
 
 export default function runMiddleware(req, res, fn) {
 	return new Promise((resolve, reject) => {

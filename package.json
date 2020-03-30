@@ -21,7 +21,7 @@
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
-    "lint": "eslint .",
+    "lint": "eslint --cache --fix .",
     "start": "next start"
   },
   "dependencies": {
