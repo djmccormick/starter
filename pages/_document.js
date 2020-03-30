@@ -14,6 +14,8 @@ export default class CustomDocument extends Document {
 				<body>
 					<Main />
 					<NextScript />
+					<hr />
+					<p>Running in {process.env.MODE} mode.</p>
 				</body>
 			</Html>
 		);

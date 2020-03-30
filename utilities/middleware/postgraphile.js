@@ -1,23 +1,25 @@
 import simplifyInflector from '@graphile-contrib/pg-simplify-inflector';
 import { postgraphile } from 'postgraphile';
 
-export default postgraphile('postgres://postgres@localhost/project', 'public', {
+const isDevelopment = process.env.MODE === 'development';
+
+export default postgraphile(process.env.DATABASE, {
 	graphqlRoute: '/api',
+	retryOnInitFail: !isDevelopment,
 	subscriptions: true,
-	watchPg: true,
+	watchPg: isDevelopment,
 	dynamicJson: true,
 	setofFunctionsContainNulls: false,
 	ignoreRBAC: false,
 	ignoreIndexes: false,
-	showErrorStack: 'json',
-	extendedErrors: ['hint', 'detail', 'errcode'],
-	exportGqlSchemaPath: 'schema.graphql',
+	showErrorStack: isDevelopment ? 'json' : false,
+	disableQueryLog: !isDevelopment,
+	extendedErrors: isDevelopment ? ['hint', 'detail', 'errcode'] : ['errcode'],
+	exportGqlSchemaPath: isDevelopment ? 'schema.graphql' : undefined,
 	graphiqlRoute: '/api/graphiql',
-	graphiql: true,
-	enhanceGraphiql: true,
-	allowExplain(req) {
-		return true;
-	},
+	graphiql: isDevelopment,
+	enhanceGraphiql: isDevelopment,
+	allowExplain: isDevelopment ? (req) => true : false,
 	enableQueryBatching: true,
 	legacyRelations: 'omit',
 	pgSettings(req) {
