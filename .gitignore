@@ -3,4 +3,4 @@
 /.next
 /node_modules
 npm-debug.log*
-schema.json
+schema.graphql
