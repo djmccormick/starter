@@ -23,6 +23,15 @@
     "lint": "eslint --cache --fix .",
     "start": "next start"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}": "prettier --write",
+    "*.js": "eslint --cache --fix"
+  },
   "dependencies": {
     "@graphile-contrib/pg-simplify-inflector": "^5.0.0-beta.1",
     "next": "9.3.2",
@@ -39,14 +48,5 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.10",
     "prettier": "^2.0.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}": "prettier --write",
-    "*.js": "eslint --cache --fix"
   }
 }
