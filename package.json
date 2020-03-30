@@ -1,0 +1,30 @@
+{
+  "name": "starter",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/djmccormick/starter#readme",
+  "bugs": {
+    "url": "https://github.com/djmccormick/starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/djmccormick/starter.git"
+  },
+  "engines": {
+    "node": "13.12.0",
+    "npm": "6.14.4"
+  },
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.3.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
