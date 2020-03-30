@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  node:
+    command: 'npm run dev'
+    volumes:
+      - ./:/home/node/app
+    env_file:
+      - .env
+  postgres:
+    env_file:
+      - .env
