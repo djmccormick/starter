@@ -18,12 +18,14 @@
   },
   "main": "server/index.js",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
     "start": "next start"
   },
   "dependencies": {
     "next": "9.3.2",
+    "prettier": "^2.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }

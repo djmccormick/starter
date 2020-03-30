@@ -1,5 +1,3 @@
 export default function CustomApp({ Component, pageProps }) {
-	return (
-		<Component {...pageProps} />
-	);
-};
+	return <Component {...pageProps} />;
+}

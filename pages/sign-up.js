@@ -12,4 +12,4 @@ export default function SignUp() {
 			</main>
 		</div>
 	);
-};
+}

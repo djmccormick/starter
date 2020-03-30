@@ -12,4 +12,4 @@ export default function ForgotPassword() {
 			</main>
 		</div>
 	);
-};
+}
