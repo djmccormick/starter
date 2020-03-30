@@ -28,7 +28,6 @@
     "@graphile-contrib/pg-simplify-inflector": "^5.0.0-beta.1",
     "next": "9.3.2",
     "postgraphile": "^4.6.0",
-    "prettier": "^2.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -37,6 +36,18 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0"
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.10",
+    "prettier": "^2.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}": "prettier --write",
+    "*.js": "eslint --cache --fix"
   }
 }
