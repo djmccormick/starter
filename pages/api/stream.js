@@ -1,5 +1,11 @@
-import runMiddleware, { postgraphile } from '../../utilities/middleware';
+import postgraphile from '../../utilities/middleware/postgraphile';
 
 export default async function stream(req, res) {
-	await runMiddleware(req, res, postgraphile);
+	postgraphile(req, res);
 }
+
+export const config = {
+	api: {
+		bodyParser: false
+	}
+};

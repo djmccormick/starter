@@ -1,3 +1,4 @@
+import simplifyInflector from '@graphile-contrib/pg-simplify-inflector';
 import { postgraphile } from 'postgraphile';
 
 export default postgraphile('postgres://postgres@localhost/project', 'public', {
@@ -20,7 +21,7 @@ export default postgraphile('postgres://postgres@localhost/project', 'public', {
 	enableQueryBatching: true,
 	legacyRelations: 'omit',
 	pgSettings(req) {
-		return { role: 'visitor' };
+		return {};
 	},
-	appendPlugins: [require('@graphile-contrib/pg-simplify-inflector')]
+	appendPlugins: [simplifyInflector]
 });
