@@ -4,6 +4,7 @@ import { postgraphile } from 'postgraphile';
 const isDevelopment = process.env.MODE === 'development';
 
 export default postgraphile(process.env.DATABASE_URL, {
+	ownerConnectionString: process.env.OWNER_DATABASE_URL || undefined,
 	graphqlRoute: '/api',
 	retryOnInitFail: !isDevelopment,
 	subscriptions: true,
