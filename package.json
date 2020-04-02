@@ -18,8 +18,9 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"graphile-migrate watch\"",
     "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
+    "in-container": "docker exec starter-node",
     "lint": "eslint --cache --fix .",
     "start": "next start"
   },
@@ -34,7 +35,9 @@
   },
   "dependencies": {
     "@graphile-contrib/pg-simplify-inflector": "^5.0.0-beta.1",
-    "next": "9.3.2",
+    "concurrently": "^5.1.0",
+    "graphile-migrate": "^0.1.0",
+    "next": "9.3.4",
     "postgraphile": "^4.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -46,7 +49,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.10",
+    "lint-staged": "^10.1.1",
     "prettier": "^2.0.2"
   }
 }

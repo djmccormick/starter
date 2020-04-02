@@ -1,0 +1,10 @@
+{
+	"pgSettings": {},
+	"placeholders": {},
+	"afterReset": [],
+	"afterAllMigrations": [],
+	"afterCurrent": [],
+	"blankMigrationContent": "",
+	"migrationsFolder": "./database/migrations",
+	"//generatedWith": "0.1.0"
+}
