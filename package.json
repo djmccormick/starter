@@ -34,22 +34,22 @@
     "*.js": "eslint --cache --fix"
   },
   "dependencies": {
-    "@graphile-contrib/pg-simplify-inflector": "^5.0.0-beta.1",
-    "concurrently": "^5.1.0",
-    "graphile-migrate": "^0.1.0",
-    "next": "9.3.4",
-    "postgraphile": "^4.6.0",
+    "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
+    "concurrently": "^5.2.0",
+    "graphile-migrate": "^0.3.1",
+    "next": "9.4.4",
+    "postgraphile": "^4.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.1.1",
-    "prettier": "^2.0.2"
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   }
 }
