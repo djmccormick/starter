@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "concurrently \"next dev\" \"graphile-migrate watch\"",
+    "dev": "concurrently -c blue,magenta -n \"next\",\"graphile-migrate\" \"next dev\" \"graphile-migrate watch\"",
     "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
     "in-container": "docker exec starter-node",
     "lint": "eslint --cache --fix .",
@@ -35,10 +35,18 @@
     "*.js": "eslint --cache --fix"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@apollo/react-ssr": "^3.1.5",
     "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
     "concurrently": "^5.2.0",
     "graphile-migrate": "^0.3.1",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.3",
     "next": "9.4.4",
+    "next-with-apollo": "^5.1.0",
     "pg": "^8.2.1",
     "postgraphile": "^4.7.0",
     "react": "16.13.1",

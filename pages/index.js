@@ -1,6 +1,23 @@
 import Head from 'next/head';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
-export default function Home() {
+const query = gql`
+	{
+		me {
+			nodeId
+			id
+			firstName
+			lastName
+		}
+	}
+`;
+
+const Home = () => {
+	const result = useQuery(query);
+	const me = result.data?.me || {};
+	console.log('result', result);
+
 	return (
 		<div>
 			<Head>
@@ -9,7 +26,12 @@ export default function Home() {
 			</Head>
 			<main>
 				<h1 className="title">Home</h1>
+				<p>
+					Hello, {me.firstName} {me.lastName}!
+				</p>
 			</main>
 		</div>
 	);
-}
+};
+
+export default Home;
