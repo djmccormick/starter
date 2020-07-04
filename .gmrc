@@ -8,12 +8,6 @@
 		":DATABASE_SCHEMA_HIDDEN": "!ENV",
 		":DATABASE_SCHEMA_PRIVATE": "!ENV"
 	},
-	"afterAllMigrations": [
-		"functions/current-user-id.sql",
-		"functions/me.sql",
-		"columns/users-is-me.sql",
-		"policies/users.sql"
-	],
 	"afterCurrent": [
 		"functions/current-user-id.sql",
 		"functions/me.sql",

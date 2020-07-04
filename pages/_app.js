@@ -1,3 +1,5 @@
-export default function CustomApp({ Component, pageProps }) {
+const CustomApp = ({ Component, pageProps }) => {
 	return <Component {...pageProps} />;
-}
+};
+
+export default CustomApp;

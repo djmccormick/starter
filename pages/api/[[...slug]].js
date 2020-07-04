@@ -35,3 +35,9 @@ export default postgraphile(
 		appendPlugins: [simplifyInflector]
 	}
 );
+
+export const config = {
+	api: {
+		bodyParser: false
+	}
+};
