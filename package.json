@@ -22,7 +22,8 @@
     "format": "prettier --write \"{**/,}*.{js,jsx,css,less,scss,json,graphql,gql,md,yaml,yml,html,webmanifest,babelrc,prettierrc}\"",
     "in-container": "docker exec starter-node",
     "lint": "eslint --cache --fix .",
-    "start": "next start"
+    "start": "next start",
+    "graphile-migrate": "graphile-migrate"
   },
   "husky": {
     "hooks": {
@@ -38,6 +39,7 @@
     "concurrently": "^5.2.0",
     "graphile-migrate": "^0.3.1",
     "next": "9.4.4",
+    "pg": "^8.2.1",
     "postgraphile": "^4.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"

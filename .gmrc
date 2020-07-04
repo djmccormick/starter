@@ -1,10 +1,22 @@
 {
 	"pgSettings": {},
-	"placeholders": {},
-	"afterReset": [],
+	"placeholders": {
+		":DATABASE_OWNER_ROLE": "!ENV",
+		":DATABASE_AUTHENTICATOR_ROLE": "!ENV",
+		":DATABASE_VISITOR_ROLE": "!ENV",
+		":DATABASE_SCHEMA_PUBLIC": "!ENV",
+		":DATABASE_SCHEMA_HIDDEN": "!ENV",
+		":DATABASE_SCHEMA_PRIVATE": "!ENV"
+	},
+	"afterReset": [
+		"prime.sql"
+	],
 	"afterAllMigrations": [],
-	"afterCurrent": [],
-	"blankMigrationContent": "",
-	"migrationsFolder": "./database/migrations",
-	"//generatedWith": "0.1.0"
+	"afterCurrent": [
+		"functions/current-user-id.sql",
+		"functions/me.sql",
+		"columns/users-is-me.sql",
+		"policies/users.sql"
+	],
+	"blankMigrationContent": ""
 }

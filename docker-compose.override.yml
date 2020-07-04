@@ -9,6 +9,6 @@ services:
       - .env
   postgres:
     volumes:
-      - ./scripts/prime.sh:/docker-entrypoint-initdb.d/prime.sh:ro
+      - ./scripts/prime.sh:/docker-entrypoint-initdb.d/prime.sh:delegated
     env_file:
       - .env
