@@ -2,35 +2,22 @@
 set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
-	-- User
-	create user project_user;
+	-- Default privileges
+	alter default privileges in schema public revoke all on functions from public;
+	alter default privileges in schema public revoke all on sequences from public;
+	alter default privileges in schema public revoke all on tables from public;
+	revoke all on schema public from public;
 
-	-- Databases
-	create database project owner project_user;
-	create database project_shadow owner project_user;
+	-- Users and roles
+	create role ${DATABASE_OWNER_ROLE} with login password '${DATABASE_OWNER_PASSWORD}' superuser; -- IMPORTANT: don't grant superuser in production
+	grant ${DATABASE_OWNER_ROLE} to ${POSTGRES_USER};
+	create role ${DATABASE_AUTHENTICATOR_ROLE} with login password '${DATABASE_AUTHENTICATOR_PASSWORD}' noinherit;
+	create role ${DATABASE_VISITOR_ROLE};
+	grant ${DATABASE_VISITOR_ROLE} to ${DATABASE_AUTHENTICATOR_ROLE};
 
-	-- Privileges
-	grant all privileges on database project to project_user;
-	grant all privileges on database project_shadow to project_user;
-
-	-- Roles
-	do \$do$
-	begin
-		if not exists (select from pg_catalog.pg_roles where rolname = 'unauthenticated') then
-			create role "unauthenticated" nologin;
-		end if;
-
-		grant unauthenticated to postgres;
-
-		if not exists (select from pg_catalog.pg_roles where rolname = 'authenticated') then
-			create role "authenticated" nologin;
-		end if;
-
-		grant authenticated to postgres;
-	end
-	\$do$;
-
-	-- Extensions
-	create extension if not exists "uuid-ossp";
-	grant all on function uuid_generate_v1mc to authenticated;
+	-- Database
+	create database ${DATABASE_NAME} owner ${DATABASE_OWNER_ROLE};
+	revoke all on database ${DATABASE_NAME} from public;
+	grant all on database ${DATABASE_NAME} to ${DATABASE_OWNER_ROLE};
+	grant connect on database ${DATABASE_NAME} to ${DATABASE_AUTHENTICATOR_ROLE};
 EOSQL
