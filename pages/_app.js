@@ -28,15 +28,13 @@ export default withApollo(({ ctx, initialState }) => {
 })(CustomApp, { getDataFromTree });
 
 function createIsomorphicLink(req, res) {
-	//if (!process.browser) {
-	//    const { ApolloLinkPostgraphile } = require('../utilities/apollo-link-postgraphile');
+	if (!process.browser) {
+		const {
+			ApolloLinkPostgraphile
+		} = require('../utilities/apollo-link-postgraphile');
 
-	//    return new ApolloLinkPostgraphile({
-	//        req,
-	//        res,
-	//        postgraphileMiddleware: req.app.get('postgraphileMiddleware'),
-	//    });
-	//}
+		return new ApolloLinkPostgraphile({ req, res });
+	}
 
 	const { HttpLink } = require('apollo-link-http');
 

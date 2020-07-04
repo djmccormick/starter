@@ -16,7 +16,6 @@ const query = gql`
 const Home = () => {
 	const result = useQuery(query);
 	const me = result.data?.me || {};
-	console.log('result', result);
 
 	return (
 		<div>

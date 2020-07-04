@@ -1,20 +1,17 @@
-/* eslint-disable */
+import { ApolloLink, Observable } from 'apollo-link';
+import { execute, getOperationAST } from 'graphql';
 
-import {
-	ApolloLink,
-	FetchResult,
-	NextLink,
-	Observable,
-	Operation
-} from 'apollo-link';
+import { postgraphileMiddleware } from './postgraphile-middleware';
 
 export class ApolloLinkPostgraphile extends ApolloLink {
-	constructor() {
+	constructor(options) {
 		super();
+
+		this.options = options;
 	}
 
 	request(operation, _forward) {
-		const { postgraphileMiddleware, req, res, rootValue } = this.options;
+		const { req, res, rootValue } = this.options;
 
 		return new Observable((observer) => {
 			(async () => {
