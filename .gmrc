@@ -8,10 +8,12 @@
 		":DATABASE_SCHEMA_HIDDEN": "!ENV",
 		":DATABASE_SCHEMA_PRIVATE": "!ENV"
 	},
-	"afterReset": [
-		"prime.sql"
+	"afterAllMigrations": [
+		"functions/current-user-id.sql",
+		"functions/me.sql",
+		"columns/users-is-me.sql",
+		"policies/users.sql"
 	],
-	"afterAllMigrations": [],
 	"afterCurrent": [
 		"functions/current-user-id.sql",
 		"functions/me.sql",
